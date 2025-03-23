@@ -44,14 +44,8 @@ function gambleTime(){
     updateBal();
   }
 
-
-  
-  if(pretTempTemp){
-    document.querySelector(`.js-${pret}`).innerHTML = `${pret}`;
-  }else{
-    document.querySelector(`.js-0`).innerHTML = `ALL IN!?!`;
-  }
-  document.querySelector(`.${alegere}`).innerHTML = document.querySelector(`.${alegere}`).innerHTML.toLowerCase();
+  document.querySelector(`.js-${pretTempTemp}`).classList.remove('selected');
+  document.querySelector(`.${alegere}`).classList.remove('selected');
 
   pret=0, alegere='';
   if(!bal && aiCasa){
@@ -71,24 +65,15 @@ function gambleTime(){
 
 function price(pretTemp){
   pretTempTemp = pretTemp;
-  if(pretTemp){
-    pret = pretTemp;
-    document.querySelector(`.js-${pret}`).innerHTML = `$${pret}`;
-  }else{
-    pret = bal;
-    document.querySelector(`.js-0`).innerHTML = `$ALL IN!?!`;
-  }
+  pret = pretTemp || bal;
+  document.querySelector(`.js-${pretTemp}`).classList.add('selected');
 
   if(!prevPret){
     prevPret = pret;
     prevPretTemp = pretTemp;
   }else if(prevPret !== pret){
 
-    if(prevPretTemp){
-      document.querySelector(`.js-${prevPret}`).innerHTML = `${prevPret}`;
-    }else{
-      document.querySelector(`.js-0`).innerHTML = `ALL IN!?!`;
-    }
+    document.querySelector(`.js-${prevPretTemp}`).classList.remove('selected');
     prevPret = pret;
     prevPretTemp = pretTemp;
 
@@ -107,12 +92,12 @@ function price(pretTemp){
 
 function choice(alegereTemp){
   alegere = alegereTemp;
-  document.querySelector(`.${alegere}`).innerHTML = document.querySelector(`.${alegere}`).innerHTML.toUpperCase();
+  document.querySelector(`.${alegere}`).classList.add('selected');
 
   if(!prevAlegere){
     prevAlegere = alegere;
   }else if(prevAlegere !== alegere){
-    document.querySelector(`.${prevAlegere}`).innerHTML = document.querySelector(`.${prevAlegere}`).innerHTML.toLowerCase();
+    document.querySelector(`.${prevAlegere}`).classList.remove('selected');
     prevAlegere = alegere;
   }
 
