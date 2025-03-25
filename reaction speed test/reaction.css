@@ -1,0 +1,16 @@
+.button1{
+  font-size: 30px;
+  margin-top: 20px;
+  height: 300px;
+  width: 300px;
+  background-color: rgb(152, 231, 253);
+  cursor: pointer;
+}
+
+.button1InGameWait{
+  background-color: red;
+}
+
+.button1InGameClick{
+  background-color: greenyellow;
+}
