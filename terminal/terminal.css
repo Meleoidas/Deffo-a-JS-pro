@@ -1,0 +1,26 @@
+:root {
+  background-color: black;
+  color: white;
+  font-family: 'Cascadia Code', sans-serif;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-family: 'Cascadia Code', sans-serif;
+  width: 100%;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+.logs {
+
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.inputBar {
+  display: flex;
+}
